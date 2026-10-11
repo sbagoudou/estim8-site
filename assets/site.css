@@ -1,0 +1,76 @@
+/* estim8 support site. Paper and ink, like the app. No external requests: the font is self-hosted. */
+@font-face {
+  font-family: "Big Shoulders Display";
+  src: url("BigShouldersDisplay-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
+}
+
+:root {
+  --paper: #ffffff;
+  --card: #f3f3f3;
+  --ink: #000000;
+  --ink-muted: #5e5e5e;
+  --hairline: #dcdcdc;
+  --tape: #ffc629;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #000000;
+    --card: #1c1c1e;
+    --ink: #ffffff;
+    --ink-muted: #a1a1a1;
+    --hairline: #333333;
+  }
+  .wordmark { filter: invert(1); }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.wordmark { height: 32px; width: auto; display: block; }
+nav a { color: var(--ink-muted); text-decoration: none; margin-left: 16px; font-size: 15px; }
+nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+
+.tape {
+  height: 12px;
+  margin: 28px 0 32px;
+  border-radius: 3px;
+  background:
+    repeating-linear-gradient(90deg, #000 0 1px, transparent 1px 8px) top / 100% 6px no-repeat,
+    var(--tape);
+}
+
+h1, h2 {
+  font-family: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+}
+h1 { font-size: 48px; }
+h2 { font-size: 28px; margin-top: 40px; }
+h3 { font-size: 17px; margin: 24px 0 4px; }
+p, ul { margin: 8px 0; }
+ul { padding-left: 20px; }
+li { margin: 4px 0; }
+.lead { color: var(--ink-muted); margin-top: 12px; }
+.card { background: var(--card); border-radius: 14px; padding: 16px 20px; margin-top: 24px; }
+a { color: var(--ink); }
+footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--hairline); color: var(--ink-muted); font-size: 13px; }
+footer a { color: var(--ink-muted); }
